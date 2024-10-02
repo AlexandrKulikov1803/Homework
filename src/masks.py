@@ -1,11 +1,7 @@
-from typing import Union
-
-
-def get_mask_card_number(card_number: Union[str, int]) -> str:
+def get_mask_card_number(card_number: str) -> str:
     """Функция маскировки номера банковской карты"""
 
     hidden_card_number = ""
-    card_number = str(card_number)
     for i, char in enumerate(card_number):
         if i in range(6, 12):
             hidden_card_number += "*"
@@ -23,9 +19,8 @@ def get_mask_card_number(card_number: Union[str, int]) -> str:
     return mask_card_number
 
 
-def get_mask_account(account: Union[str, int]) -> str:
+def get_mask_account(account: str) -> str:
     """Функция маскировки номера банковского счёта"""
 
-    account = str(account)
     mask_account = "**" + account[-4:]
     return mask_account
