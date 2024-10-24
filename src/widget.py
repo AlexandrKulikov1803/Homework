@@ -25,8 +25,11 @@ def mask_account_card(account_card_info: str) -> str:
 
 def get_date(exact_date: str) -> str:
     """Функция, которая возвращает строку с датой в формате ДД.ММ.ГГГГ"""
-    day = exact_date[8:10]
-    month = exact_date[5:7]
-    year = exact_date[0:4]
-    date_format_day_month_year = day + "." + month + "." + year
-    return date_format_day_month_year
+    if exact_date != "":
+        day = exact_date[8:10]
+        month = exact_date[5:7]
+        year = exact_date[0:4]
+        date_format_day_month_year = day + "." + month + "." + year
+        return date_format_day_month_year
+    else:
+        return ""
