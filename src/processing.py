@@ -1,6 +1,6 @@
 def filter_by_state(info_states: list, state: str = "EXECUTED") -> list:
     """Функция принимает список словарей и фильтрует его по ключу state"""
-    new_list_of_states = [i for i in info_states if i["state"] == state]
+    new_list_of_states = [i for i in info_states if (("state" in i) and (i["state"] == state))]
     return new_list_of_states
 
 
