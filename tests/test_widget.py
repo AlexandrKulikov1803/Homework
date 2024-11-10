@@ -26,4 +26,3 @@ def test_get_date(data_1: str, data_2: str, data_3: str, data_4: str, data_5: st
     assert get_date(data_3) == "11.03.2024"
     assert get_date(data_4) == "11.03.2024"
     assert get_date(data_5) == "Неверный формат даты"
-
