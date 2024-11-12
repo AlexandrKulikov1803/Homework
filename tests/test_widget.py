@@ -20,6 +20,9 @@ def test_mask_account_card(value: str, expected_result: str) -> None:
     assert mask_account_card(value) == expected_result
 
 
-def test_get_date(data_1: str, data_2: str) -> None:
+def test_get_date(data_1: str, data_2: str, data_3: str, data_4: str, data_5: str) -> None:
     assert get_date(data_1) == "11.03.2024"
     assert get_date(data_2) == ""
+    assert get_date(data_3) == "11.03.2024"
+    assert get_date(data_4) == "11.03.2024"
+    assert get_date(data_5) == "Неверный формат даты"
