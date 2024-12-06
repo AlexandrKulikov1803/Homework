@@ -3,6 +3,7 @@ from src.masks import get_mask_account, get_mask_card_number
 
 def mask_account_card(account_card_info: str) -> str:
     """Функция маскировки номера карты/счёта"""
+
     if "Счет" in account_card_info:
         account_info_mask = ""
         for i, char in enumerate(account_card_info):
@@ -25,6 +26,7 @@ def mask_account_card(account_card_info: str) -> str:
 
 def get_date(exact_date: str) -> str:
     """Функция, которая возвращает строку с датой в формате ДД.ММ.ГГГГ"""
+
     if exact_date == "":
         return ""
     elif exact_date[4] in ".-\\":
