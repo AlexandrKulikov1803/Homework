@@ -1,4 +1,8 @@
+from typing import Any
+
 import pytest
+
+from src.decorators import log
 
 
 @pytest.fixture
@@ -146,3 +150,21 @@ def descriptions() -> list:
         "Перевод с карты на карту",
         "Перевод организации",
     ]
+
+
+@pytest.fixture
+def decorated_function_1() -> Any:
+    @log()
+    def function(a: Any, b: Any) -> Any:
+        return a / b
+
+    return function
+
+
+@pytest.fixture
+def decorated_function_2() -> Any:
+    @log("my_log.txt")
+    def function(a: Any, b: Any) -> Any:
+        return a / b
+
+    return function
