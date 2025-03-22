@@ -8,8 +8,8 @@ api_key = os.getenv("API_KEY")
 
 
 def currency_conversion(transaction: dict) -> float:
-    """Функция, которая принимает на вход путь до JSON-файла и
-    возвращает список словарей с данными о финансовых транзакциях."""
+    """Функция, которая принимает на вход транзакцию и возвращает сумму транзакции в рублях."""
+
     code = transaction["operationAmount"]["currency"]["code"]
     amount = float(transaction["operationAmount"]["amount"])
     if code != "RUB":
