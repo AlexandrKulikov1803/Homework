@@ -1,5 +1,6 @@
 from typing import Any
 
+import pandas as pd
 import pytest
 
 from src.decorators import log
@@ -1104,3 +1105,20 @@ def list_of_transactions() -> list[dict]:
             "to": "Счет 96527012349577388612",
         },
     ]
+
+
+@pytest.fixture
+def transactions_files_csv_and_xlsx() -> pd.DataFrame:
+    return pd.DataFrame.from_dict(
+        {
+            "id": [650703.0, 3598919.0, 593027.0],
+            "state": ["EXECUTED", "EXECUTED", "CANCELED"],
+            "date": ["2023-09-05T11:30:32Z", "2020-12-06T23:00:58Z", "2023-07-22T05:02:01Z"],
+            "amount": [16210.0, 29740.0, 30368.0],
+            "currency_name": ["Sol", "Peso", "Shilling"],
+            "currency_code": ["PEN", "COP", "TZS"],
+            "from": ["Счет 58803664561298323391", "Discover 3172601889670065", "Visa 1959232722494097"],
+            "to": ["Счет 39745660563456619397", "Discover 0720428384694643", "Visa 6804119550473710"],
+            "description": ["Перевод организации", "Перевод с карты на карту", "Перевод с карты на карту"],
+        }
+    )
