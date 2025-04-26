@@ -21,8 +21,10 @@ def transactions_csv(path_file_csv: str) -> list[dict]:
 
     if os.path.exists(path_file_csv):
         df = pd.read_csv(path_file_csv, sep=";")
+        df = df.dropna()
+        df["id"] = df["id"].astype(int)
         logger.info("Данные файла успешно преобразованы в список словарей")
-        return df.to_dict(orient="records")
+        return df.dropna().to_dict(orient="records")
     else:
         logger.error("Преобразование невозможно")
         return []
