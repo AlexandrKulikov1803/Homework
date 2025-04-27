@@ -12,8 +12,9 @@ import pytest
         (5, "s", "function error: unsupported operand type(s) for /: 'int' and 'str'. Inputs: (5, 's'), {}"),
     ],
 )
-def test_console_log(capsys: Any, decorated_function_1: Any, decorated_function_2: Any,
-                     x: Any, y: Any, expected_result: str) -> None:
+def test_console_log(
+    capsys: Any, decorated_function_1: Any, decorated_function_2: Any, x: Any, y: Any, expected_result: str
+) -> None:
     decorated_function_1(x, y)
     captured = capsys.readouterr()
     assert expected_result in captured.out
