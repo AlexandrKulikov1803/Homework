@@ -92,7 +92,7 @@ def info_state_3() -> list:
 
 
 @pytest.fixture
-def transactions() -> list:
+def transactions_1() -> list:
     return [
         {
             "id": 939719570,
@@ -138,6 +138,144 @@ def transactions() -> list:
             "description": "Перевод организации",
             "from": "Visa Platinum 1246377376343588",
             "to": "Счет 14211924144426031657",
+        },
+    ]
+
+
+@pytest.fixture
+def transactions_2() -> list:
+    return [
+        {
+            "id": 650703,
+            "state": "EXECUTED",
+            "date": "2023-09-05T11:30:32Z",
+            "amount": 16210.0,
+            "currency_name": "Sol",
+            "currency_code": "PEN",
+            "from": "Счет 58803664561298323391",
+            "to": "Счет 39745660563456619397",
+            "description": "Перевод организации",
+        },
+        {
+            "id": 3598919,
+            "state": "EXECUTED",
+            "date": "2020-12-06T23:00:58Z",
+            "amount": 29740.0,
+            "currency_name": "Peso",
+            "currency_code": "COP",
+            "from": "Discover 3172601889670065",
+            "to": "Discover 0720428384694643",
+            "description": "Перевод с карты на карту",
+        },
+        {
+            "id": 593027,
+            "state": "CANCELED",
+            "date": "2023-07-22T05:02:01Z",
+            "amount": 30368.0,
+            "currency_name": "Shilling",
+            "currency_code": "TZS",
+            "from": "Visa 1959232722494097",
+            "to": "Visa 6804119550473710",
+            "description": "Перевод с карты на карту",
+        },
+        {
+            "id": 366176,
+            "state": "EXECUTED",
+            "date": "2020-08-02T09:35:18Z",
+            "amount": 29482.0,
+            "currency_name": "Rupiah",
+            "currency_code": "IDR",
+            "from": "Discover 0325955596714937",
+            "to": "Visa 3820488829287420",
+            "description": "Перевод с карты на карту",
+        },
+        {
+            "id": 1962667,
+            "state": "EXECUTED",
+            "date": "2023-10-22T09:43:32Z",
+            "amount": 18588.0,
+            "currency_name": "Peso",
+            "currency_code": "COP",
+            "from": "Mastercard 7286844946221431",
+            "to": "Счет 76145988629288763144",
+            "description": "Перевод организации",
+        },
+        {
+            "id": 5294458,
+            "state": "EXECUTED",
+            "date": "2022-06-20T18:08:20Z",
+            "amount": 16836.0,
+            "currency_name": "Yuan Renminbi",
+            "currency_code": "CNY",
+            "from": "Visa 2759011965877198",
+            "to": "Счет 38287443300766991082",
+            "description": "Перевод с карты на карту",
+        },
+        {
+            "id": 3176764,
+            "state": "CANCELED",
+            "date": "2022-08-24T14:32:38Z",
+            "amount": 16652.0,
+            "currency_name": "Euro",
+            "currency_code": "EUR",
+            "from": "Mastercard 8387037425051294",
+            "to": "American Express 5556525473658852",
+            "description": "Перевод с карты на карту",
+        },
+        {
+            "id": 4234093,
+            "state": "EXECUTED",
+            "date": "2021-07-08T07:31:21Z",
+            "amount": 23182.0,
+            "currency_name": "Ruble",
+            "currency_code": "RUB",
+            "from": "Visa 0773092093872450",
+            "to": "Discover 8602781449570491",
+            "description": "Перевод с карты на карту",
+        },
+        {
+            "id": 2130098,
+            "state": "PENDING",
+            "date": "2020-06-07T11:11:36Z",
+            "amount": 30731.0,
+            "currency_name": "Euro",
+            "currency_code": "EUR",
+            "from": "Visa 5749750597771353",
+            "to": "American Express 9106381490184499",
+            "description": "Перевод с карты на карту",
+        },
+        {
+            "id": 4653427,
+            "state": "PENDING",
+            "date": "2020-10-04T12:12:23Z",
+            "amount": 34072.0,
+            "currency_name": "Yuan Renminbi",
+            "currency_code": "CNY",
+            "from": "Discover 9058011549803523",
+            "to": "Mastercard 5266726031439012",
+            "description": "Перевод с карты на карту",
+        },
+        {
+            "id": 4813301,
+            "state": "EXECUTED",
+            "date": "2021-11-02T13:32:15Z",
+            "amount": 15080.0,
+            "currency_name": "Euro",
+            "currency_code": "EUR",
+            "from": "Счет 65547878890984510340",
+            "to": "Счет 91457207307678002163",
+            "description": "Перевод со счета на счет",
+        },
+        {
+            "id": 1449073,
+            "state": "CANCELED",
+            "date": "2021-05-11T10:06:51Z",
+            "amount": 11834.0,
+            "currency_name": "Rupiah",
+            "currency_code": "IDR",
+            "from": "Счет 17847122626293622323",
+            "to": "Счет 68570011224094542755",
+            "description": "Перевод со счета на счет",
         },
     ]
 
@@ -1122,3 +1260,15 @@ def transactions_files_csv_and_xlsx() -> pd.DataFrame:
             "description": ["Перевод организации", "Перевод с карты на карту", "Перевод с карты на карту"],
         }
     )
+
+
+@pytest.fixture
+def categories() -> list:
+    return [
+        "Открытие вклада",
+        "Перевод со счета на счет",
+        "Перевод со счета на карту",
+        "Перевод с карты на счет",
+        "Перевод с карты на карту",
+        "Перевод организации",
+    ]

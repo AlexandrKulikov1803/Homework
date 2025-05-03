@@ -57,17 +57,32 @@ from src.generators import card_number_generator, filter_by_currency, transactio
                 },
             ],
             [],
+            [
+                {
+                    "id": 4234093,
+                    "state": "EXECUTED",
+                    "date": "2021-07-08T07:31:21Z",
+                    "amount": 23182.0,
+                    "currency_name": "Ruble",
+                    "currency_code": "RUB",
+                    "from": "Visa 0773092093872450",
+                    "to": "Discover 8602781449570491",
+                    "description": "Перевод с карты на карту",
+                }
+            ],
         ),
     ],
 )
-def test_filter_by_currency(transactions: list, expected_result: list) -> None:
-    assert list(filter_by_currency(transactions, "RUB")) in expected_result
-    assert list(filter_by_currency(transactions, "USD")) in expected_result
-    assert list(filter_by_currency(transactions, "EUR")) in expected_result
+def test_filter_by_currency(transactions_1: list, transactions_2: list, expected_result: list) -> None:
+    assert list(filter_by_currency(transactions_1, "RUB")) in expected_result
+    assert list(filter_by_currency(transactions_1, "USD")) in expected_result
+    assert list(filter_by_currency(transactions_1, "EUR")) in expected_result
+    assert list(filter_by_currency(transactions_2, "RUB")) in expected_result
+    assert list(filter_by_currency([], "RUB")) == []
 
 
-def test_transaction_descriptions(transactions: list, descriptions: list) -> None:
-    assert list(transaction_descriptions(transactions)) == descriptions
+def test_transaction_descriptions(transactions_1: list, descriptions: list) -> None:
+    assert list(transaction_descriptions(transactions_1)) == descriptions
 
 
 @pytest.mark.parametrize(
